@@ -1,0 +1,42 @@
+/* color palatte
+113946
+BCA37F
+EAD7BB
+FFF2D8 */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#container{
+    height: 100vh;
+}
+
+#Navbar {
+    background-color: #113946;
+    color: whitesmoke;
+    padding: 2rem;
+}
+
+#body-div {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+#margin{
+    background-color: #FFF2D8;
+    width: 18rem;
+}
+
+li{
+    list-style-type: none;
+}
+
+button{
+    border: none;
+    background-color: none;
+}
