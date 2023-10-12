@@ -19,6 +19,7 @@ FFF2D8 */
     background-color: #113946;
     color: whitesmoke;
     padding: 2rem;
+    display: flex;
 }
 
 #body-div {
@@ -38,5 +39,13 @@ li{
 
 button{
     border: none;
-    background-color: none;
+    background-color: #FFF2D8;
+    font-size: large;
+    font-weight: 800;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+#list-btn {
+    background-color: white;
 }
