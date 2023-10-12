@@ -1,61 +1,102 @@
-:root {
-    --primary-color: #113946;
-    --secondary-color: #BCA37F;
-    --tertiary-color: #EAD7BB;
-    --background-color: #FFF2D8;
-  }
+/* :root {
+  --primary-color: #113946;
+  --secondary-color: #BCA37F;
+  --tertiary-color: #EAD7BB;
+  --background-color: #FFF2D8;
+} */
   
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
   
-  #container {
-    min-height: 100vh;
-  }
+#container {
+  height: 100vh;
+}
   
-  #Navbar {
-    background-color: var(--primary-color);
-    color: whitesmoke;
-    padding: 2rem;
-    display: flex;
-  }
+#Navbar {
+  background-color:#113946;
+  color: whitesmoke;
+  padding: 2rem;
+  display: flex;
+}
   
-  #body-div {
-    display: flex;
-    flex-direction: row;
-    min-height: 100vh;
-  }
+#body-div {
+  display: flex;
+  flex-direction: row;
+}
   
-  #margin {
-    background-color: var(--background-color);
-    width: 18rem;
-    min-height: 100vh;
-  }
+#margin {
+  background-color: #FFF2D8;
+  width: 18rem;
+  height: 100vh;
+}
   
-  #list {
-    width: calc(100vw - 18rem); 
-  }
+#list {
+  display: flex;
+  flex-direction: column;
+  width: 82rem;
+  padding-left: 20rem;
+  align-items: center;
+}
+
+#list > * {
+  width: 100%;
+}
+
   
-  /* List Item Styles */
-  li {
-    list-style-type: none;
-  }
+li {
+  list-style-type: none;
+}
   
-  /* Button Styles */
-  button {
-    border: none;
-    background-color: var(--background-color);
-    font-size: large;
-    font-weight: 800;
-    font-family: sans-serif;
-    cursor: pointer;
-  }
+button {
+  border: none;
+  background-color: var(--background-color);
+  font-size: large;
+  font-weight: 800;
+  font-family: sans-serif;
+  cursor: pointer;
+}
   
-  /* List Button Styles */
-  #list-btn {
-    background-color: white;
-  }
+#list-btn {
+  background-color: white;
+}
+
+#task-heading{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
   
+.add-button,
+.cancel-button{
+  width: 50%;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.add-button{
+  background-color: rgb(21, 99, 21);
+  color: aliceblue;
+}
+
+.cancel-button{
+  background-color: rgb(91, 20, 20);
+  color: aliceblue;
+}
+
+.input-field{
+  height: 40px;
+  font-size: large;
+  border-radius: 5px;
+  border-color: 1px solid gray;
+}
+
+.task-title{
+  padding-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
