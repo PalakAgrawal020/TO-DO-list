@@ -27,12 +27,23 @@ function taskManager() {
 
     function createTask() {
         const task = document.createElement('div');
+    
+        const check = document.createElement('input');
+        check.type = 'checkbox';
+        task.appendChild(check);
+    
         task.innerText = input.value;
+    
+        const deleteTask = document.createElement('button');
+        deleteTask.textContent = "delete";
+        task.appendChild(deleteTask);
+    
         list.removeChild(input);
         list.removeChild(addBtn);
         list.removeChild(cancelBtn);
         list.appendChild(task);
-    };
+    }
+    
 
     function removeTask() {
         list.removeChild(input);
