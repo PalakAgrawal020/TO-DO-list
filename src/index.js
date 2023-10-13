@@ -21,14 +21,14 @@ class TaskManager {
     this.input.id = 'task';
     this.input.type = 'text';
     this.input.classList.add('input-field');
-    this.addCancelDiv = document.createElement('div');
     this.createButtons();
     this.btn.addEventListener('click', () => this.addTaskInput());
   }
 
   createButtons() {
-    const dateBtn = document.createElement('button');
-    dateBtn.textContent = 'Add Date';
+    const taskDateInput = document.createElement('input');
+    taskDateInput.type = 'date';
+    taskDateInput.id = 'task-date';
 
     const addBtn = document.createElement('button');
     addBtn.textContent = 'Add';
@@ -38,11 +38,11 @@ class TaskManager {
     cancelBtn.textContent = 'Cancel';
     cancelBtn.classList.add('cancel-button');
 
-    dateBtn.addEventListener('click', () => this.addDateInput()); // Call a new function to add date input
     addBtn.addEventListener('click', () => this.createTask());
     cancelBtn.addEventListener('click', () => this.removeTaskInput());
 
-    this.addCancelDiv.appendChild(dateBtn);
+    this.addCancelDiv = document.createElement('div');
+    this.addCancelDiv.appendChild(taskDateInput);
     this.addCancelDiv.appendChild(addBtn);
     this.addCancelDiv.appendChild(cancelBtn);
   }
@@ -52,12 +52,6 @@ class TaskManager {
     this.list.appendChild(this.addCancelDiv);
   }
 
-  addDateInput() {
-    const taskDateInput = document.createElement('input');
-    taskDateInput.type = 'date';
-    this.list.appendChild(taskDateInput); // Add the date input field
-  }
-
   removeTaskInput() {
     this.list.removeChild(this.input);
     this.list.removeChild(this.addCancelDiv);
@@ -65,18 +59,16 @@ class TaskManager {
 
   createTask() {
     const taskText = this.input.value.trim();
-    const taskDate = this.list.querySelector('input[type="date"]').value; // Get the selected date
+    const taskDate = document.getElementById('task-date').value;
 
     if (taskText && taskDate) {
-      const task = new Task(taskText, taskDate); // Create the Task object
-
+      const task = new Task(taskText, taskDate);
       this.taskArr.push(task);
       console.log('Task Added:', task);
 
       const taskDiv = document.createElement('div');
       taskDiv.classList.add('task-title');
 
-      // Left Side: Checkbox and Task Title
       const leftSideTask = document.createElement('div');
       leftSideTask.style.display = 'flex';
       leftSideTask.style.alignItems = 'center';
@@ -95,7 +87,6 @@ class TaskManager {
       leftSideTask.appendChild(checkbox);
       leftSideTask.appendChild(taskTitle);
 
-      // Right Side: Date and Delete Button
       const rightSideTask = document.createElement('div');
       rightSideTask.style.display = 'flex';
       rightSideTask.style.alignItems = 'center';
@@ -105,14 +96,13 @@ class TaskManager {
       deleteTask.style.marginRight = '6px';
       deleteTask.addEventListener('click', () => this.deleteTask(task, taskDiv));
 
-      rightSideTask.appendChild(document.createTextNode(taskDate)); // Display the date
+      rightSideTask.appendChild(document.createTextNode(taskDate));
       rightSideTask.appendChild(deleteTask);
 
       taskDiv.appendChild(leftSideTask);
       taskDiv.appendChild(rightSideTask);
 
       this.list.removeChild(this.input);
-      this.list.removeChild(this.list.querySelector('input[type="date"]')); // Remove the date input field
       this.list.removeChild(this.addCancelDiv);
       this.updateTaskAppearance(task, taskDiv);
 
@@ -121,7 +111,6 @@ class TaskManager {
       this.input.value = '';
     }
   }
-
 
   updateTaskAppearance(task, taskDiv) {
     if (task.completed) {
