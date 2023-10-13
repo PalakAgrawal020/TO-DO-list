@@ -108,6 +108,8 @@ class TaskManager {
       this.updateTaskAppearance(task, taskDiv);
 
       this.list.appendChild(taskDiv);
+
+      this.input.value = '';
     }
 }
 
